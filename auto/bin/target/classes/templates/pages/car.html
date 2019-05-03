@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head></head>
+<body>
+<th:block layout:fragment="content">
+    <th:block th:insert="~{header_page :: header_page}"></th:block>
+    <main role="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-9 col-md-8">
+                    <th:block th:insert="~{components/breadcrumb_component :: breadcrumb_component}"></th:block>
+                    <div class="row">
+                        <div class="col"><h3 th:utext="${car.title}">Infiniti G</h3></div>
+                        <div class="col"><h3 th:utext="${car.price}+'C'">450 000 <small class="text-muted">C</small></h3></div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-auto" th:utext="${car.dateAdd}">17 августа 2018</div>
+                                <div class="col" th:utext="${'№ '+ car.id}">№ 1076712716</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mx-1 mt-3 mb-5 no-gutters shadow rounded border-top">
+                        <div class="col-auto py-2 px-2">
+                            <img class="rounded-circle" style="height: 40px" src="/img/unknown-people.jpg" th:src="@{/img/unknown-people.jpg}" alt="...">
+                        </div>
+                        <div class="col py-2 mr-auto">
+                            <h4 class="pt-1" th:utext="${car.owner.name}">Леонид</h4>
+                        </div>
+                        <div class="col bg-success text-light font-weight-bold">
+                            <div class="row flex-column justify-content-center align-items-center no-gutters h-100 cursor-pointer">
+                                <div class="phone-lable">Показать телефон</div>
+                                <div class="phone-number" th:utext="${car.owner.numberPhone}">+992*********</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters mb-4">
+                        <div class="col" id="fotorama">
+                            <a><img src="/img/01ee131da18c61659313e0f772485b6e.webp" th:src="@{/img/01ee131da18c61659313e0f772485b6e.webp}"></a>
+                            <a><img src="/img/f8baf57a9f2c4dbe2fb3949cb29657c6.webp" th:src="@{/img/f8baf57a9f2c4dbe2fb3949cb29657c6.webp}"></a>
+                            <a><img src="/img/home_banner.jpg" th:src="@{/img/home_banner.jpg}"></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light" >Год выпуска</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold"th:utext="${car.year_issue}">2007</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Пробег</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.mileage}">208 000 км</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Кузов</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.carcase.name}">Седан</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Цвет</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.color.name}">Чёрный</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Двигатель</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.engineCapacity.capacity+' л /'+ car.power+' л.с. /'+ car.fuel.name }">2.5 л / 200 л.с. / Бензин</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Коробка</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.transmission.name}">Автоматическая</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Привод</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.driveUnit.type}">Передний</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Руль</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold">Левый</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Состояние</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" th:utext="${car.condition}">Не требует ремонта</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Владельцы</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold">3 или более</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">ПТС</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold">Оригинал</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row car-model-link font-size-18">
+                                <div class="col-auto font-weight-light">Таможня</div>
+                                <div class="col car-model-line"></div>
+                                <div class="col-auto font-weight-bold" >Растаможен</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-5 col-md-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Комментарий продавца</a>
+                                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Комфорт</a>
+                                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Обзор</a>
+                                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Особенности</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-8">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Машина покупалось у официального дилера в 2008 году ( круиз контроль, кожаный салон, ), все ТО во время , много чего делалось , все ремни ГРМ, приводной, заменены 6 тыщ км назад, ролики, натяжетели, новый радиатор кондицеонера , целенблоки менены пол годо назад, новые тормозные диски тоже где то пол года назад менял, фары полировались и закление спецальной пленкой, лобовое стекло в штатной прозрачной солнцезащитной пленке, масло в коробке менялось при 170 тыщ , масло в двигателе и все фильтра меняю каждые 10 тыщ, салон в отличном состоянии)) за машиной ухаживал , звоните спрашивайте все расскажу. Без торга. Перекупам не звонить .</div>
+                                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-bottom my-4"></div>
+                    <div class="row">
+                        <div class="col"><h4>Похожие объявления</h4></div>
+                    </div>
+                    <th:block th:insert="~{cars/car_preview_l :: car_preview_l}"></th:block>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-12 my-2">
+                            <h2 class="text-center">
+                                VIP
+                            </h2>
+                        </div>
+                        <div class="col-lg-11 col-md-9 col-sm-4 col-6 mb-4">
+                            <div class="card car-preview-m">
+                                <img src="img/01ee131da18c61659313e0f772485b6e.webp" th:src="@{/img/01ee131da18c61659313e0f772485b6e.webp}" class="card-img-top" alt="...">
+                                <div class="car-region">Душанбе</div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">450 000 C</h5>
+                                    <p class="card-text">Infiniti G, 2004</p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <small class="text-muted">16.02.2019</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <th:block th:insert="~{footer_page :: footer_page}"></th:block>
+</th:block>
+</body>
+</html>

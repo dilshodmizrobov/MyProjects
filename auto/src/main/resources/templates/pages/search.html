@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head></head>
+<body>
+<th:block layout:fragment="content">
+    <th:block th:insert="~{header_page :: header_page}"></th:block>
+    <main role="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-9 col-md-8">
+                    <th:block th:insert="~{components/breadcrumb_component :: breadcrumb_component}"></th:block>
+                    <th:block th:insert="~{filters/filter_search :: filter_search}"></th:block>
+                    <th:block th:insert="~{components/sort_component :: sort_component}"></th:block>
+                    <th:block th:insert="~{cars/car_preview_l :: car_preview_l}"></th:block>
+                    <hr>
+                    <th:block th:insert="~{components/pagination_component :: pagination_component}"></th:block>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-12 my-2">
+                            <h2 class="text-center">
+                                VIP
+                            </h2>
+                        </div>
+                        <div class="col-lg-11 col-md-9 col-sm-4 col-6 mb-4">
+                            <div class="card car-preview-m">
+                                <img src="img/01ee131da18c61659313e0f772485b6e.webp" class="card-img-top" alt="...">
+                                <div class="car-region">Душанбе</div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">450 000 C</h5>
+                                    <p class="card-text">Infiniti G, 2004</p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <small class="text-muted">16.02.2019</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <th:block th:insert="~{footer_page :: footer_page}"></th:block>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,74 @@
+package tj.auto.springboot.dao;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import tj.auto.springboot.entity.Car;
+
+import javax.persistence.Query;
+import javax.persistence.Tuple;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
+
+@Transactional
+@Repository("carDao")
+public class CarDaoImp2  {
+    private static final Logger LOGGER= LoggerFactory.getLogger(CarDaoImp2.class);
+    @Autowired
+    SessionFactory sessionFactory;
+
+    public Car getCarById(int id) {
+        Session currentSession = this.sessionFactory.getCurrentSession();
+        Car car = currentSession.get(Car.class, id);
+        return car;
+    }
+
+    public void addCar(Car car) {
+          Session currentSession = sessionFactory.getCurrentSession();
+          currentSession.saveOrUpdate(car);
+    }
+    @Transactional(readOnly = true)
+
+    public List<Car> getCars() {
+        Session session = sessionFactory.getCurrentSession();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Car> cq = cb.createQuery(Car.class);
+        Root< Car > root = cq.from(Car.class);
+        cq.select(root);
+        Query query = session.createQuery(cq);
+        return query.getResultList();
+    }
+    @Transactional(readOnly = true)
+
+    public List<Tuple> getCountMarkCar() {
+        Session session = sessionFactory.getCurrentSession();
+        CriteriaBuilder builder  = session.getCriteriaBuilder();
+        CriteriaQuery<Tuple> criteria  = builder.createQuery(Tuple.class);
+        Root< Car > root = criteria .from(Car.class);
+        criteria.groupBy(root.get("mark"));
+
+        criteria.multiselect(root.get("mark"), builder.count(root));
+        List<Tuple> tuples = session.createQuery( criteria ).getResultList();
+        return tuples;
+    }
+
+
+    public void deleteCar(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Car car = session.byId(Car.class).load(id);
+        session.delete(car);
+    }
+}
+
+
+
+@EnableAutoConfiguration(exclude = { //
+		DataSourceAutoConfiguration.class, //
+		DataSourceTransactionManagerAutoConfiguration.class, //
+		HibernateJpaAutoConfiguration.class })
+

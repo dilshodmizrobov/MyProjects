@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<th:block th:fragment="car_preview_m" th:each="car : ${cars}">
+    <div th:data-id="${car.id}" class="card car-preview-m"  >
+    <img  src="img/01ee131da18c61659313e0f772485b6e.webp" th:src="@{/img/01ee131da18c61659313e0f772485b6e.webp}" class="card-img-top" alt="...">
+    <div class="car-region" th:utext="${car.region}">Душанбе</div>
+    <div class="card-body text-center">
+        <h5 class="card-title" th:utext="${car.price}+'C'">50000C</h5>
+        <p class="card-text" th:utext="${car.title}"> Машина в хорошем состояние</p>
+    </div>
+    <div class="card-footer text-center">
+        <small class="text-muted" th:utext="${car.dateAdd}">20.02.2019</small>
+    </div>
+    </div>
+</th:block>
+</body>
+</html>
+
+
+

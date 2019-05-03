@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<th:block th:fragment="filter_search">
+<div class="shadow p-4 bg-white rounded">
+    <form>
+        <h2 class="mb-4">Продажа автомобилей в Auto</h2>
+        <div class="btn-group mb-4" role="group" aria-label="...">
+            <button type="button" class="btn btn-light active">Все</button>
+            <button type="button" class="btn btn-light">Новые</button>
+            <button type="button" class="btn btn-light">С пробегом</button>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                <select class="form-control">
+                    <option selected>Марка</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                <select class="form-control">
+                    <option selected>Модель</option>
+                    <option value="1">One</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                <select class="form-control">
+                    <option selected>Поколение</option>
+                    <option value="1">One</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                <select class="form-control">
+                    <option selected>Кузов</option>
+                    <option value="1">One</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                <select class="form-control">
+                    <option selected>Коробка</option>
+                    <option value="1">One</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <select class="form-control">
+                    <option selected>Двигатель</option>
+                    <option value="1">One</option>
+                </select>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <select class="form-control">
+                    <option selected>Привод</option>
+                    <option value="1">One</option>
+                </select>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
+                <div class="form-row">
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Объем от, л">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="До">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-6 mb-2">
+                <div class="form-row">
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Год от">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="До">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
+                <div class="form-row">
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Пробег от, км">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="До">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
+                <div class="form-row">
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Цена от, с">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="До">
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto mb-2">
+                <button type="submit" class="btn btn-primary">Показать 8 предложений</button>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="row">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+                <div class="row car-model-link">
+                    <div class="col-auto">
+                        <a href="#" class="text-dark">Audi</a>
+                    </div>
+                    <div class="col car-model-line"></div>
+                    <div class="col-auto text-black-50">100</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</th:block>
+</body>
+</html>

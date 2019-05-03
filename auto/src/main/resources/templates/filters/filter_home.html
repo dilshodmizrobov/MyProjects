@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<th:block th:fragment="filter_home">
+    <div class="jumbotron mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col shadow p-4 bg-white rounded">
+                    <form id="autoForm" action="search.html">
+                        <h2 class="mb-4">Продажа автомобилей в Auto</h2>
+                        <div id="autoType" class="btn-group mb-4" role="group" aria-label="...">
+                            <button id="autoAll" type="button" class="btn btn-light active">Все</button>
+                            <button id="autoNew" type="button" class="btn btn-light">Новые</button>
+                            <button id="autoMileage" type="button" class="btn btn-light">С пробегом</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+                                <select id="autoMark" class="form-control">
+                                    <option value="0" selected>Марка</option>
+                                    <option th:each="mark : ${marks}" th:value="${mark.id}" th:utext="${mark.name}"></option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+                                <select id="autoModel" class="form-control" disabled>
+                                    <option value="0" selected>Модель</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+                                <select id="autoGeneration" class="form-control" disabled>
+                                    <option value="0" selected>Поколение</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+                                <select id="autoCarcase" class="form-control">
+                                    <option value="0" selected>Кузов</option>
+                                    <option th:each="carcase : ${carcases}" th:value="${carcase.id}" th:utext="${carcase.name}" >One</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+                                <select id="autoTransmission" class="form-control">
+                                    <option value="0" selected>Коробка</option>
+                                    <option th:each="transmission : ${transmissions}" th:value="${transmission.id}" th:utext="${transmission.name}" >Automat</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                                <select id="autoFuel" class="form-control">
+                                    <option value="0" selected>Двигатель</option>
+                                    <option th:each="fuel : ${fuels}" th:value="${fuel.id}" th:utext="${fuel.name}" >Бензин</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                                <select id="autoDriveUnit" class="form-control">
+                                    <option value="0" selected>Привод</option>
+                                    <option th:each="driveUnit : ${driveUnits}" th:value="${driveUnit.id}" th:utext="${driveUnit.type}" >Передный</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                                <div class="form-row">
+                                    <div class="col-8">
+                                        <select class="form-control">
+                                            <option selected>Объем от, л</option>
+                                            <option th:each="engineCapacitie : ${engineCapacities}" th:value="engineCapacitie.id" th:utext="${engineCapacitie.capacity}" >2.0л</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <select class="form-control">
+                                            <option selected>До</option>
+                                            <option th:each="engineCapacitie : ${engineCapacities}" th:value="engineCapacitie.id" th:utext="${engineCapacitie.capacity}" >4.0л</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                                <div class="form-row">
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" placeholder="Год от">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="До">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 mb-2">
+                                <div class="form-row">
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" placeholder="Пробег от, км">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="До">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
+                                <div class="form-row">
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" placeholder="Цена от, с">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="До">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto mb-2">
+                                <button id="autoSendButton" type="submit" class="btn btn-primary">Показать предложений</button>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="row">
+
+                            <div th:each="mark : ${markInfos}" class="col-lg-2 col-md-4 col-sm-6 mb-2" >
+                                <div class="row car-model-link" >
+                                    <div class="col-auto">
+                                        <a href="#" class="text-dark"  th:utext="${mark.name}">marks</a>
+                                    </div>
+                                    <div class="col car-model-line"></div>
+                                    <div class="col-auto text-black-50" th:utext="${mark.quantity}">100</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>

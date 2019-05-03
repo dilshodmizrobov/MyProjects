@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head></head>
+<body>
+<th:block th:fragment="header_page">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand mb-0 h1" href="home" th:href="@{/}">Auto</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <span class="navbar-text">Легковые автомобили</span>
+            </li>
+        </ul>
+        <div><a href="#" class="btn btn-success mr-3">Продать</a></div>
+        <ul class="nav navbar-nav pull-right" sec:authorize="isAuthenticated()">
+            <li>
+                <div class="navbar-text" th:text="${#authentication.name}">User</div>
+            </li>
+            <li>
+                <a id="navLogoutLink" class="btn btn-primary" role="button"  th:href="@{/logout}">Logout</a>
+            </li>
+            <li>&nbsp;|&nbsp;</li>
+        </ul>
+        <ul class="nav navbar-nav pull-right" sec:authorize="!isAuthenticated()">
+            <li><a id="navLoginLink" class="btn btn-primary" role="button" th:href="@{/login}">Войти</a></li>
+            <li>&nbsp;|&nbsp;</li>
+        </ul>
+    </div>
+</nav>
+</th:block>
+</body>
+</html>

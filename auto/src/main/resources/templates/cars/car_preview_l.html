@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<th:block th:fragment="car_preview_l">
+<div class="cars-l my-4">
+    <div class="car-preview-l">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-4">
+                <div class="d-flex align-items-center h-100">
+                    <img src="img/01ee131da18c61659313e0f772485b6e.webp" th:src="@{/img/01ee131da18c61659313e0f772485b6e.webp}" class="card-img-top" alt="...">
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-8 col-8">
+                <div class="d-flex flex-column h-100">
+                    <div class="row no-gutters">
+                        <div class="col-sm-auto col-6 pr-2 mr-auto"><h5>Infiniti G</h5></div>
+                        <div class="col-sm-auto col-6 pr-2 mr-auto"><h5>450 000 <small class="text-muted">C</small></h5></div>
+                        <div class="col-sm-auto col-6 pr-2 mr-auto"><h5>2015</h5></div>
+                        <div class="col-sm-auto col-6 pr-2 mr-auto"><h5>77 400 <small class="text-muted">км</small></h5></div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-6 pr-2">
+                            <h6>1.8 <small class="text-muted">л</small> / 140 <small class="text-muted">л.с.</small> / Бензин</h6>
+                        </div>
+                        <div class="col-6 pr-2"><h6>Передний</h6></div>
+                    </div>
+                    <div class="row no-gutters mb-auto">
+                        <div class="col-6 pr-2"><h6>Механика</h6></div>
+                        <div class="col-6 pr-2"><h6>Коричневый</h6></div>
+                    </div>
+                    <div><h6>Душанбе, 17.02.2019</h6></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</th:block>
+</body>
+</html>
+
+
+

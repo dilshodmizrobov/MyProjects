@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Auto Marker
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Mizrobov
+Implementation-Vendor-Id: tj.auto
+Build-Jdk: 1.8.0_192
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/auto
+Created-By: Maven Integration for Eclipse
+

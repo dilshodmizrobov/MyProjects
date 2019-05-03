@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta charset="UTF-8"/>
+    <title>Default title for my pages</title>
+    <th:block layout:fragment="headers"></th:block>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/fotorama/4.6.4/fotorama.css}"/>
+    <link rel="stylesheet" th:href="@{/css/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
+<body>
+<div layout:fragment="content"></div>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<!--<script type="text/javascript" th:src="@{/webjars/popper.js/1.14.5/dist/popper.min.js}"></script>-->
+<script type="text/javascript" th:src="@{/webjars/fotorama/4.6.4/fotorama.js}"></script>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+<th:block layout:fragment="scripts"></th:block>
+</body>
+</html>
